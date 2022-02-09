@@ -97,7 +97,7 @@ inline void gemm_ex(DATATYPE_A DT_A, DATATYPE_B DT_B, DATATYPE_C DT_C, cl::sycl:
             CUBLAS_ERROR_FUNC(cublasGemmEx, err, handle, get_cublas_operation(transa),
                               get_cublas_operation(transb), m, n, k, (cuDataType_C *)&alpha, a_,
                               DT_A, lda, b_, DT_B, ldb, (cuDataType_C *)&beta, c_, DT_C, ldc, DT_C,
-                              CUBLAS_GEMM_DEFAULT);
+                              CUBLAS_GEMM_ALGO9);
         });
     });
 }
@@ -490,7 +490,7 @@ inline cl::sycl::event gemm_ex_usm(DATATYPE_A DT_A, DATATYPE_B DT_B, DATATYPE_C 
             CUBLAS_ERROR_FUNC(cublasGemmEx, err, handle, get_cublas_operation(transa),
                               get_cublas_operation(transb), m, n, k, (cuDataType_C *)&alpha, a_,
                               DT_A, lda, b_, DT_B, ldb, (cuDataType_C *)&beta, c_, DT_C, ldc, DT_C,
-                              CUBLAS_GEMM_DEFAULT);
+                              CUBLAS_GEMM_ALGO9);
         });
     });
     return done;
